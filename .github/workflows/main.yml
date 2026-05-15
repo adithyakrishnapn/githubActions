@@ -9,7 +9,13 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-     - name: Checkout Code
-       uses: actions/checkout@v4
-     - name: Print Success Message
-       run: echo "Website pipeline working!"
+    - name: Checkout Code
+      uses: actions/checkout@v4
+    - name: Check HTML Exists
+      run: test -f index.html
+    - name: Check CSS Exists
+      run: test -f styles.css
+    - name: Check JavaScript Exists
+      run: test -f script.js
+    - name: Success
+      run: echo "All files exist! Workflow completed successfully."
